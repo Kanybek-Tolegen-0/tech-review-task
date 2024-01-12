@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const App = () => {
-	return <>APP</>
+    return <>APP</>
 }
