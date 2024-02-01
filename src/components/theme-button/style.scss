@@ -1,9 +1,25 @@
-.theme-button {
-    background: none;
-    border: none;
-    width: 64px;
-    height: 64px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@import './../../../assets/mixins';
+@import './../../../assets/colors';
+
+.theme {
+    @include flex(end, center);
+
+    &__button {
+        background: none;
+        border: none;
+        width: 64px;
+        height: 64px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    &__text-dark {
+        color: $deep-navy;
+    }
+
+    &__text-light {
+        color: $white;
+    }
 }

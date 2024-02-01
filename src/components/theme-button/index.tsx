@@ -7,8 +7,17 @@ export const ThemeButton = ({ toggleTheme }: { toggleTheme: () => void }) => {
     const theme = useContext(themeContext)
 
     return (
-        <button className="theme-button" onClick={toggleTheme}>
-            {theme.isDark ? <MoonIcon /> : <SunIcon />}
-        </button>
+        <div className="theme">
+            <span
+                className={
+                    theme.isDark ? 'theme__text-light' : 'theme_text-dark'
+                }
+            >
+                {theme.isDark ? 'LIGHT' : 'DARK'}
+            </span>
+            <button className="theme__button" onClick={toggleTheme}>
+                {theme.isDark ? <SunIcon /> : <MoonIcon />}
+            </button>
+        </div>
     )
 }
