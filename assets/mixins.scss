@@ -1,0 +1,10 @@
+@mixin flex($justify, $align) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin hover() {
+    opacity: 0.8;
+    transition: 0.2s linear all;
+}
