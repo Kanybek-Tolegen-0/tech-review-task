@@ -1,0 +1,53 @@
+@import './../../../assets/colors';
+@import './../../../assets/mixins';
+
+.search {
+    display: flex;
+    width: 100%;
+    @include flex(space-between, center);
+    gap: 14px;
+    &__flex-wrapper {
+        display: flex;
+        @include flex(_, center);
+        flex: 1;
+    }
+
+    &__button {
+        background-color: $azure;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        padding: 12px 24px;
+        &:hover {
+            cursor: pointer;
+            @include hover();
+        }
+    }
+
+    &__input {
+        background: none;
+        outline: none;
+        border: none;
+        font-size: 16px;
+        flex: 1;
+        padding: 12px;
+
+        &-dark {
+            color: white;
+        }
+
+        &-ligth {
+            color: black;
+        }
+
+        &::placeholder {
+            color: $steel-blue;
+        }
+    }
+}
+
+.error-text {
+    color: $jasper;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+        'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
