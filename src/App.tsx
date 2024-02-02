@@ -8,6 +8,7 @@ export const App = () => {
     return (
         <ThemeContext.Provider value={theme}>
             <ThemeButton toggleTheme={toggleTheme} />
+            ''
         </ThemeContext.Provider>
     )
 }
