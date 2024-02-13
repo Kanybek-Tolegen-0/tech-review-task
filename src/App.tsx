@@ -1,5 +1,11 @@
 import { useTheme } from './hooks'
-import { Container, SearchInput, ThemeButton, UserData } from './components'
+import {
+    Container,
+    Layout,
+    SearchInput,
+    ThemeButton,
+    UserData
+} from './components'
 import { themeContext as ThemeContext } from './context'
 import axios, { AxiosError } from 'axios'
 import { useState } from 'react'
@@ -28,18 +34,7 @@ export const App = () => {
 
     return (
         <ThemeContext.Provider value={theme}>
-            <div
-                style={{
-                    background: theme.isDark ? '#141d2f' : '#f6f8ff',
-                    height: '100vh',
-                    width: '100%',
-                    display: 'grid',
-                    justifyContent: 'center',
-                    gridTemplateRows: 'max-content max-content 0.5fr',
-                    rowGap: '16px',
-                    gridTemplateColumns: 'max-content'
-                }}
-            >
+            <Layout>
                 <ThemeButton toggleTheme={toggleTheme} />
                 <Container>
                     <SearchInput onSearch={getGithubUser} />
@@ -49,7 +44,7 @@ export const App = () => {
                         <UserData user={user} />
                     </Container>
                 ) : null}
-            </div>
+            </Layout>
         </ThemeContext.Provider>
     )
 }

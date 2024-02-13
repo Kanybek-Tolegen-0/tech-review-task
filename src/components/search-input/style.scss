@@ -9,6 +9,7 @@
 
     &__flex-wrapper {
         display: flex;
+        flex: 1;
         @include flex(_, center);
     }
 
@@ -30,7 +31,7 @@
         border: none;
         font-size: 16px;
         padding: 12px;
-
+        flex: 1;
         &-dark {
             color: white;
         }

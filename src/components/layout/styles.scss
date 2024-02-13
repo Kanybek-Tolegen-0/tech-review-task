@@ -1,0 +1,17 @@
+@import './../../../assets/colors.scss';
+
+.layout {
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    grid-template-rows: max-content max-content 0.5fr;
+    grid-template-columns: 0.5fr;
+    row-gap: 16px;
+    &-dark {
+        background-color: $midnight-blue;
+    }
+
+    &-light {
+        background-color: $ghost-white;
+    }
+}
