@@ -3,7 +3,6 @@
 
 .theme {
     @include flex(end, center);
-
     &__button {
         background: none;
         border: none;
