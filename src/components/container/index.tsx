@@ -4,12 +4,9 @@ import './style.scss'
 
 export const Container = ({
     children,
-    padding = '12px 16px',
-    style = {},
-    ...rest
+    padding = '12px 16px'
 }: {
     children: React.ReactNode
-    style?: object
     padding?: string
 }) => {
     const theme = useContext(themeContext)
@@ -20,10 +17,8 @@ export const Container = ({
                 theme.isDark ? 'container__dark' : 'container__light'
             }`}
             style={{
-                padding,
-                ...style
+                padding
             }}
-            {...rest}
         >
             {children}
         </div>

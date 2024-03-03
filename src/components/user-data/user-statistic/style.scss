@@ -1,0 +1,42 @@
+@import './../../../assets/colors.scss';
+
+.statistic-number {
+    font-family: 'Roboto Mono', monospace;
+    font-optical-sizing: auto;
+    font-weight: 600;
+
+    &-light {
+        color: $midnight-blue;
+    }
+
+    &-dark {
+        color: $white;
+    }
+}
+
+.user-statistic {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, max-content);
+    column-gap: 16px;
+    row-gap: 8px;
+    border-radius: 16px;
+    padding: 12px 24px;
+    grid-area: user-statistic;
+
+    &-light {
+        background-color: $ghost-white;
+    }
+
+    &-dark {
+        background-color: $midnight-blue;
+    }
+}
+
+.statistic-label {
+    color: $steel-blue;
+    font-family: 'Anta', sans-serif;
+    font-optical-sizing: auto;
+    font-size: 14px;
+    opacity: 1.1;
+}

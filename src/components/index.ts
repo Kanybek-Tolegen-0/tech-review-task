@@ -7,3 +7,5 @@ export { Container } from './container'
 export { UserData } from './user-data'
 
 export { Layout } from './layout'
+
+export { Loader } from './loader'

@@ -5,7 +5,7 @@
     display: grid;
     justify-content: center;
     grid-template-rows: max-content max-content 0.5fr;
-    grid-template-columns: 0.5fr;
+    grid-template-columns: 0.4fr;
     row-gap: 16px;
     &-dark {
         background-color: $midnight-blue;

@@ -2,6 +2,7 @@ import { useTheme } from './hooks'
 import {
     Container,
     Layout,
+    Loader,
     SearchInput,
     ThemeButton,
     UserData
@@ -14,23 +15,29 @@ import './style.scss'
 
 export const App = () => {
     const [theme, toggleTheme] = useTheme()
-    const [user, setUser] = useState<IUserData>()
+    const [user, setUser] = useState<IUserData | null>(null)
+    const [loader, setLoader] = useState(false)
 
-    const getGithubUser = async (
+    const getGithubUser = (
         username: string,
         setError: (error: string) => void
     ) => {
         if (username !== user?.login) {
-            await axios
+            setLoader(true)
+            axios
                 .get(`https://api.github.com/users/${username}`)
                 .then(({ data }) => setUser(data))
                 .catch((err: Error) => {
                     if (err instanceof AxiosError) {
+                        setUser(null)
                         setError(err.response?.data.message)
                     }
                 })
+                .finally(() => setLoader(false))
         }
     }
+
+    console.log({ user })
 
     return (
         <ThemeContext.Provider value={theme}>
@@ -39,11 +46,7 @@ export const App = () => {
                 <Container>
                     <SearchInput onSearch={getGithubUser} />
                 </Container>
-                {user ? (
-                    <Container>
-                        <UserData user={user} />
-                    </Container>
-                ) : null}
+                {loader ? <Loader /> : <UserData user={user} />}
             </Layout>
         </ThemeContext.Provider>
     )

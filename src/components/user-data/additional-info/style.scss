@@ -1,0 +1,8 @@
+@import './../../../assets/colors.scss';
+
+.additional-info {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    color: $steel-blue;
+}

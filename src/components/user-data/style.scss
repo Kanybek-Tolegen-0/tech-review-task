@@ -1,0 +1,19 @@
+@import './../../../assets/mixins.scss';
+
+.user-flex-container {
+    @include flex(space-between, start);
+}
+
+.grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: max-content 1fr;
+    grid-template-areas:
+        'avatar fullname joined-date'
+        'avatar username username'
+        '0 bio bio'
+        '0 user-statistic user-statistic'
+        '0 additional-data additional-data';
+    column-gap: 16px;
+    row-gap: 12px;
+}
