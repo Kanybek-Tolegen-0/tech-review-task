@@ -1,31 +1,15 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { SearchIcon } from '../../../assets/icons'
-import './style.scss'
 import { themeContext } from '../../context'
+import { Form } from 'react-router-dom'
 import { ErrorText } from './error-text'
+import './style.scss'
 
-export const SearchInput = ({
-    onSearch
-}: {
-    onSearch: (username: string, setIsError: (error: string) => void) => void
-}) => {
+export const SearchInput = ({ error }: { error?: string }) => {
     const theme = useContext(themeContext)
-    const [username, setUsername] = useState('')
-    const [error, setError] = useState('')
-
-    const handleUsernameChange = (e: React.FormEvent<HTMLInputElement>) => {
-        const { value } = e.target as HTMLInputElement
-        setUsername(value)
-        error && setError('')
-    }
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        onSearch(username, setError)
-    }
 
     return (
-        <form className="search" onSubmit={handleSubmit}>
+        <Form method="post" className="search">
             <div className="search__flex-wrapper">
                 <SearchIcon />
                 <input
@@ -36,14 +20,12 @@ export const SearchInput = ({
                             : 'search__input-light'
                     }`}
                     placeholder="Search Github username"
-                    value={username}
-                    onChange={handleUsernameChange}
                 />
             </div>
             <ErrorText error={error} />
             <button className="search__button" type="submit">
                 Search
             </button>
-        </form>
+        </Form>
     )
 }

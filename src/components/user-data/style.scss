@@ -17,3 +17,17 @@
     column-gap: 16px;
     row-gap: 12px;
 }
+
+@media screen and (max-width: 768px) {
+    .grid {
+        grid-template-areas:
+            'avatar fullname'
+            'avatar username'
+            'avatar joined-date'
+            'bio bio'
+            'user-statistic user-statistic'
+            'additional-data additional-data';
+        column-gap: 24px;
+        row-gap: 16px;
+    }
+}
